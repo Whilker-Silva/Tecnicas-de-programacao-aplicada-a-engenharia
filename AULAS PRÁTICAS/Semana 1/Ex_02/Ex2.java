@@ -1,3 +1,4 @@
+package Ex_02;
 import java.util.Scanner;
 
 public class Ex2 {
