@@ -16,7 +16,7 @@ public class Ex3 {
         entrada.nextLine();
         frase = entrada.nextLine();
 
-        String[] palavras = new String[qtdPalavras];
+        String[] palavras = frase.split(" ");
         int pos = 0;
         boolean primeiraVez = true;
 
