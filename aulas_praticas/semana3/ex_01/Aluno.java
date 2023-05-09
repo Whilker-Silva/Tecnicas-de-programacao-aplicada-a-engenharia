@@ -1,4 +1,4 @@
-package Aulas_Praticas.Semana_3.Ex_01;
+package aulas_praticas.semana3.ex_01;
 
 public class Aluno {
 

@@ -1,4 +1,4 @@
-package Ex_03;
+package aulas_praticas.semana1.ex_03;
 
 import java.util.Scanner;
 
@@ -41,8 +41,6 @@ public class Ex3 {
             }
         }
 
-        
-
         int posMaior = 0;
         int qtdMaior = 0;
 
@@ -52,21 +50,21 @@ public class Ex3 {
 
             for (int j = 0; j < palavras[i].length(); j++) {
 
-                String s = palavras[i].substring(j, j + 1);                 
-                 
+                String s = palavras[i].substring(j, j + 1);
+
                 if (s.equals("a") || s.equals("e") || s.equals("i") || s.equals("o") || s.equals("u")) {
                     qtdVogais++;
-                }                
-            }          
-            
+                }
+            }
+
             if (qtdVogais > qtdMaior) {
                 qtdMaior = qtdVogais;
-                posMaior = i;              
-            }            
+                posMaior = i;
+            }
         }
 
-        System.out.printf("Palavra com mais vogais: %s\n", palavras[posMaior]); 
-        System.out.printf("Tamanho: %d\n", qtdMaior); 
+        System.out.printf("Palavra com mais vogais: %s\n", palavras[posMaior]);
+        System.out.printf("Tamanho: %d\n", qtdMaior);
         entrada.close();
 
     }

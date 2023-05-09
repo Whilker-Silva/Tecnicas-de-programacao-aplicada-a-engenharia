@@ -1,4 +1,4 @@
-package Ex_02;
+package aulas_praticas.semana1.ex_02;
 
 import java.util.Scanner;
 
@@ -18,11 +18,12 @@ public class Ex2 {
         System.out.print("Entre com o valor investido pelo Pedro:");
         investimentoPedro = entrada.nextDouble();
 
-        
         int meses = 0; // variável para contagem de meses
 
-        /*Enquanto valor investido por joão for menor 
-        que o valor investido por pedro*/
+        /*
+         * Enquanto valor investido por joão for menor
+         * que o valor investido por pedro
+         */
         while (investimentoJoao < investimentoPedro) {
 
             investimentoJoao += investimentoJoao * 0.025;

@@ -1,4 +1,4 @@
-package Aulas_Praticas.Semana_2.Ex_01;
+package aulas_praticas.semana2;
 
 public class Principal {
     public static void main(String[] args) {

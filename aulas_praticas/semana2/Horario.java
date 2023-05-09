@@ -1,4 +1,4 @@
-package Aulas_Praticas.Semana_2.Ex_01;
+package aulas_praticas.semana2;
 
 public class Horario {
     int hora;
@@ -14,11 +14,11 @@ public class Horario {
     Horario(int segundo) {
 
         hora = segundo / 3600;
-        minuto = (segundo % 3600)/60;
-        this.segundo = (segundo % 3600)%60;
+        minuto = (segundo % 3600) / 60;
+        this.segundo = (segundo % 3600) % 60;
     }
 
     void mostraHora() {
-        System.out.printf("%02dh:%02dm:%02ds\n", hora, minuto, segundo);     
+        System.out.printf("%02dh:%02dm:%02ds\n", hora, minuto, segundo);
     }
 }

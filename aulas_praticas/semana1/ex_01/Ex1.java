@@ -1,4 +1,5 @@
-package Ex_01;
+package aulas_praticas.semana1.ex_01;
+
 import java.util.Scanner;
 
 public class Ex1 {
@@ -45,7 +46,7 @@ public class Ex1 {
     System.out.printf("Valor bruto: %.2f\n", valorBruto);
     System.out.printf("Valor do desconto: %.2f\n", desconto);
     System.out.printf("Preco final: %.2f\n", valorFinal);
-    
+
     entrada.close();
   }
 }
