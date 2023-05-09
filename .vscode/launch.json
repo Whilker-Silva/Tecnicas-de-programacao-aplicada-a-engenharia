@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Teste",
+            "request": "launch",
+            "mainClass": "Teste",
+            "projectName": "Tecnicas-de-programacao-aplicada-a-engenharia_c7f608c7"
+        },
+        {
+            "type": "java",
             "name": "Principal",
             "request": "launch",
             "mainClass": "Aulas_Praticas.Semana_3.Ex_01.Principal",
