@@ -2,8 +2,11 @@ import java.util.Random;
 
 public class Questao {
 
+    //private int idQuestao;
     private String enunciado;
     private int gabarito;
+
+    //private static int contQuestao;
 
     public Questao() {
 
@@ -13,6 +16,9 @@ public class Questao {
 
         enunciado = "Quanto é " + num1 + " * " + num2 + "?";
         gabarito = num1 * num2;
+        
+        //contQuestao++;
+        //idQuestao = contQuestao;
     }
 
     public String getEnunciado() {
