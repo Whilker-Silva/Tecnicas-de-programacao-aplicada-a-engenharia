@@ -2,12 +2,14 @@ import java.util.Random;
 
 public class Questao {
 
-    //private int idQuestao;
+    //atributos
+    private int idQuestao;
     private String enunciado;
     private int gabarito;
 
-    //private static int contQuestao;
+    private static int contQuestao = 0;
 
+    //construtor
     public Questao() {
 
         Random numeroAleatorio = new Random();
@@ -17,12 +19,16 @@ public class Questao {
         enunciado = "Quanto é " + num1 + " * " + num2 + "?";
         gabarito = num1 * num2;
         
-        //contQuestao++;
-        //idQuestao = contQuestao;
+        contQuestao++;
+        idQuestao = contQuestao;
     }
 
     public String getEnunciado() {
         return enunciado;
+    }
+
+    public int getIdQuestao(){
+        return idQuestao;
     }
 
     public boolean getGabarito(int resposta) {
