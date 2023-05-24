@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Principal",
             "request": "launch",
+            "mainClass": "etapa2.Principal",
+            "projectName": "Tecnicas-de-programacao-aplicada-a-engenharia_c7f608c7"
+        },
+        {
+            "type": "java",
+            "name": "Principal",
+            "request": "launch",
             "mainClass": "etapa1.Principal",
             "projectName": "Tecnicas-de-programacao-aplicada-a-engenharia_c7f608c7"
         },
