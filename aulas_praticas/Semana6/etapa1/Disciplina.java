@@ -35,6 +35,10 @@ public class Disciplina {
         return Collections.unmodifiableList(listaAlunos);
     }
 
+    public int qtdAlunos() {
+        return listaAlunos.size();
+    }
+
     private Comparator<Aluno> getComparador() {
 
         Comparator<Aluno> comparador = new Comparator<Aluno>() {

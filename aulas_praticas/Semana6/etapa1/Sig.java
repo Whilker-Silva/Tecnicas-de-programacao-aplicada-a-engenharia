@@ -1,16 +1,17 @@
 package aulas_praticas.Semana6.etapa1;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Sig {
 
     // Atributos
-    private Disciplina disciplina;
-
+    private ArrayList<Disciplina> disciplina;
     private Scanner entrada;
 
     // CONSTRUTOR
     public Sig() {
+        disciplina = new ArrayList<>();
         entrada = new Scanner(System.in);
     }
 
@@ -21,7 +22,7 @@ public class Sig {
             System.out.print("Escolha uma opção: ");
             opcao = Integer.parseInt(entrada.nextLine());
             executarOpcao(opcao);
-        } while (opcao != 4);
+        } while (opcao != 5);
         entrada.close();
     }
 
@@ -29,9 +30,10 @@ public class Sig {
         limparTerminal();
         System.out.println("### MENU ###");
         System.out.println("1. Cadastrar disciplina");
-        System.out.println("2. Cadastrar dados de aluno em disciplina");
-        System.out.println("3. Mostrar diario de disciplina");
-        System.out.println("4. Sair");
+        System.out.println("2. Mostrar código das disciplinas cadastradas");
+        System.out.println("3. Cadastrar dados de aluno em disciplina");
+        System.out.println("4. Mostrar diario de disciplina");
+        System.out.println("5. Sair");
         System.out.println();
     }
 
@@ -42,22 +44,23 @@ public class Sig {
                 break;
 
             case 2:
-
-                cadastarAluno();
+                getListaDisciplinas();
                 break;
 
             case 3:
-                gerarRelatorio();
+                cadastarAluno();
                 break;
 
             case 4:
-                System.out.println("Encerrando Sistema");
-                Thread.sleep(3000);
+                gerarRelatorio();
+                break;
+
+            case 5:
                 break;
 
             default:
                 System.out.println("Opção inválida!");
-
+                voltarMenu();
         }
     }
 
@@ -65,30 +68,106 @@ public class Sig {
         limparTerminal();
         System.out.print("Informe o nome código da disciplina: ");
         String nomeDisciplina = entrada.nextLine();
-        disciplina = new Disciplina(nomeDisciplina);
+        if (!veficaDisciplinasCadastrada(nomeDisciplina)) {
+            disciplina.add(new Disciplina(nomeDisciplina));
+        }
+
+        else {
+            System.out.print("Disciplina já cadastrada!");
+            voltarMenu();
+        }
+    }
+
+    private void getListaDisciplinas() {
+        limparTerminal();
+
+        if (disciplina.size() == 0) {
+            System.out.println("Nenhuma discilpina cadastrada!");
+        }
+
+        for (Disciplina x : disciplina) {
+            System.out.println(x.getCodigo());
+        }
+        voltarMenu();
     }
 
     private void cadastarAluno() {
         limparTerminal();
-        System.out.print("Informe o nome do aluno: ");
-        String nome = entrada.nextLine();
-        System.out.print("Informe a nota do aluno: ");
-        int nota = Integer.parseInt(entrada.nextLine());
-        System.out.print("Informe a quantidade de faltas do aluno: ");
-        int faltas = Integer.parseInt(entrada.nextLine());
-        disciplina.adicionarAluno(new Aluno(nome, nota, faltas));
+        
+        Disciplina cadastrandoAluno = buscarDisciplina(lerCodigo());
+
+        if (cadastrandoAluno != null) {
+            
+            int nota = lerNotaAluno();
+            int faltas = lerFaltasAluno();
+            cadastrandoAluno.adicionarAluno(new Aluno(lerNomeAluno(), nota, faltas));
+        } else {
+            System.out.print("Disciplina não encontrada!");
+            voltarMenu();
+        }
     }
 
     private void gerarRelatorio() {
-        limparTerminal();
-        disciplina.ordenarDiario();
-        System.out.println("\nDisciplina: " + disciplina.getCodigo());
-        System.out.printf("%-10s %-12s %-8s %-10s %n", "Nome", "Nota", "Faltas", "Situacao");
 
-        for (Aluno a : disciplina.getListaAlunos()) {
-            System.out.printf("%-10s %-12s %-8s %-10s %n", a.getNome(), a.getNota(), a.getFaltas(), a.getSituacao());
+        limparTerminal();
+        String codigo = lerCodigo();
+        Disciplina relatorio = buscarDisciplina(codigo);
+
+        if (relatorio != null && relatorio.qtdAlunos() > 0) {
+            limparTerminal();
+            relatorio.ordenarDiario();
+            System.out.println("\nDisciplina: " + relatorio.getCodigo());
+            System.out.printf("%-10s %-12s %-8s %-10s %n", "Nome", "Nota", "Faltas", "Situacao");
+            for (Aluno a : relatorio.getListaAlunos()) {
+                System.out.printf("%-10s %-12s %-8s %-10s %n", a.getNome(), a.getNota(), a.getFaltas(),
+                        a.getSituacao());
+            }
         }
 
+        else if (relatorio == null) {
+            System.out.print("Disciplina não encontrada!");
+        }
+
+        else {
+            System.out.print("Nenhum aluno cadastrado!");
+        }
+        voltarMenu();
+    }
+
+    private Disciplina buscarDisciplina(String nome) {
+        for (Disciplina x : disciplina) {
+            if (x.getCodigo().equals(nome)) {
+                return x;
+            }
+        }
+        return null;
+    }
+
+    private boolean veficaDisciplinasCadastrada(String nome) {
+        return buscarDisciplina(nome) != null;
+    }
+
+    private String lerCodigo() {
+        System.out.print("Informe o código da displina do aluno: ");
+        return entrada.nextLine();
+    }
+
+    private String lerNomeAluno() {
+        System.out.print("Informe o nome do aluno: ");
+        return entrada.nextLine();
+    }
+
+    private int lerNotaAluno() {
+        System.out.print("Informe a nota do aluno: ");
+        return Integer.parseInt(entrada.nextLine());
+    }
+
+    private int lerFaltasAluno() {
+        System.out.print("Informe a quantidade de faltas do aluno: ");
+        return Integer.parseInt(entrada.nextLine());
+    }
+
+    private void voltarMenu() {
         System.out.printf("\n\nPressione ENTER para voltar ao menu");
         entrada.nextLine();
     }
