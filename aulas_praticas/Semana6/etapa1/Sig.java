@@ -1,4 +1,4 @@
-package etapa2;
+package aulas_praticas.Semana6.etapa1;
 
 import java.util.Scanner;
 
@@ -19,8 +19,7 @@ public class Sig {
         do {
             exibirMenu();
             System.out.print("Escolha uma opção: ");
-            opcao = entrada.nextInt();
-            entrada.nextLine();
+            opcao = Integer.parseInt(entrada.nextLine());
             executarOpcao(opcao);
         } while (opcao != 4);
         entrada.close();
@@ -50,8 +49,10 @@ public class Sig {
             case 3:
                 gerarRelatorio();
                 break;
-                
+
             case 4:
+                System.out.println("Encerrando Sistema");
+                Thread.sleep(3000);
                 break;
 
             default:
@@ -72,10 +73,9 @@ public class Sig {
         System.out.print("Informe o nome do aluno: ");
         String nome = entrada.nextLine();
         System.out.print("Informe a nota do aluno: ");
-        int nota = entrada.nextInt();
+        int nota = Integer.parseInt(entrada.nextLine());
         System.out.print("Informe a quantidade de faltas do aluno: ");
-        int faltas = entrada.nextInt();
-        entrada.nextLine();
+        int faltas = Integer.parseInt(entrada.nextLine());
         disciplina.adicionarAluno(new Aluno(nome, nota, faltas));
     }
 
