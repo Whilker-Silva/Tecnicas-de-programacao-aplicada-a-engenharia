@@ -1,4 +1,4 @@
-package etapa2;
+package aulas_praticas.Semana6.semana5.etapa2;
 
 import java.util.Scanner;
 
