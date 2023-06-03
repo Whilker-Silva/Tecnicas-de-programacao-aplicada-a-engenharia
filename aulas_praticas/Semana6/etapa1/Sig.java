@@ -93,15 +93,14 @@ public class Sig {
 
     private void cadastarAluno() {
         limparTerminal();
-        
-        Disciplina cadastrandoAluno = buscarDisciplina(lerCodigo());
 
-        if (cadastrandoAluno != null) {
-            
-            int nota = lerNotaAluno();
-            int faltas = lerFaltasAluno();
-            cadastrandoAluno.adicionarAluno(new Aluno(lerNomeAluno(), nota, faltas));
-        } else {
+        Disciplina disciplinaProcurada = buscarDisciplina(lerCodigo());
+
+        if (disciplinaProcurada != null) {
+            disciplinaProcurada.adicionarAluno(new Aluno(lerNomeAluno(), lerNotaAluno(), lerFaltasAluno()));
+        }
+
+        else {
             System.out.print("Disciplina não encontrada!");
             voltarMenu();
         }
@@ -111,20 +110,20 @@ public class Sig {
 
         limparTerminal();
         String codigo = lerCodigo();
-        Disciplina relatorio = buscarDisciplina(codigo);
+        Disciplina displinaRelatorio = buscarDisciplina(codigo);
 
-        if (relatorio != null && relatorio.qtdAlunos() > 0) {
+        if (displinaRelatorio != null && displinaRelatorio.qtdAlunos() > 0) {
             limparTerminal();
-            relatorio.ordenarDiario();
-            System.out.println("\nDisciplina: " + relatorio.getCodigo());
+            displinaRelatorio.ordenarDiario();
+            System.out.println("\nDisciplina: " + displinaRelatorio.getCodigo());
             System.out.printf("%-10s %-12s %-8s %-10s %n", "Nome", "Nota", "Faltas", "Situacao");
-            for (Aluno a : relatorio.getListaAlunos()) {
+            for (Aluno a : displinaRelatorio.getListaAlunos()) {
                 System.out.printf("%-10s %-12s %-8s %-10s %n", a.getNome(), a.getNota(), a.getFaltas(),
                         a.getSituacao());
             }
         }
 
-        else if (relatorio == null) {
+        else if (displinaRelatorio == null) {
             System.out.print("Disciplina não encontrada!");
         }
 
