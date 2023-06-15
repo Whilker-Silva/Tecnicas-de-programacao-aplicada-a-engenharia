@@ -1,4 +1,4 @@
-package aulas_praticas.Semana7.Exercicio1;
+package Semana7.Exercicio1;
 
 import java.util.Queue;
 import java.util.LinkedList;

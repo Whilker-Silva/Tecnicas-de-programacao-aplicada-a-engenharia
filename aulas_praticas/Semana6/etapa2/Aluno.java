@@ -1,4 +1,4 @@
-package aulas_praticas.Semana6.etapa2;
+package Semana6.etapa2;
 
 public class Aluno {
 

@@ -1,4 +1,4 @@
-package aulas_praticas.Semana6.etapa1;
+package Semana6.etapa1;
 
 import java.util.ArrayList;
 import java.util.List;
