@@ -35,14 +35,18 @@ public class Disciplina {
         return Collections.unmodifiableList(listaAlunos);
     }
 
-    private Comparator<Aluno> getComparador() {
 
-        Comparator<Aluno> comparador = new Comparator<Aluno>() {
-            @Override
-            public int compare(Aluno a1, Aluno a2) {
-                return (a1.getNota() - a2.getNota()) * (-1);
-            }
-        };
-        return comparador;
-    }
+
+    private Comparator<Aluno> getComparador() {
+     * 
+     * Comparator<Aluno> comparador = new Comparator<Aluno>() {
+     * 
+     * @Override
+     * public int compare(Aluno a1, Aluno a2) {
+     * return (a1.getNota() - a2.getNota()) * (-1);
+     * }
+     * };
+     * return comparador;
+     * }
+
 }
