@@ -1,4 +1,4 @@
-package semana4.etapa1;
+package semana4.etapa3;
 
 import java.util.Random;
 
@@ -6,8 +6,15 @@ public class Questao {
 
     private String enunciado;
     private int gabarito;
+    private int idQuestao;
+
+    private static int ultimaQuestao = 0;
 
     public Questao() {
+
+        ultimaQuestao++;
+        idQuestao = ultimaQuestao;
+
         Random numeroAleatorio = new Random();
         int num1 = numeroAleatorio.nextInt(10);
         int num2 = numeroAleatorio.nextInt(10);
@@ -18,6 +25,10 @@ public class Questao {
 
     public String getEnunciado() {
         return enunciado;
+    }
+
+    public int getIdQuestao() {
+        return idQuestao;
     }
 
     public boolean verificaResposta(int resposta) {

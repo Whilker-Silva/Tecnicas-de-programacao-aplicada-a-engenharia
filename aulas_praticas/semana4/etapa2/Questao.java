@@ -1,4 +1,4 @@
-package semana4.etapa1;
+package semana4.etapa2;
 
 import java.util.Random;
 

@@ -1,6 +1,7 @@
-package aulas_praticas.semana2;
+package semana2.ex01;
 
 public class Principal {
+
     public static void main(String[] args) {
 
         Horario[] hora = new Horario[4];
@@ -10,10 +11,9 @@ public class Principal {
         hora[2] = new Horario(3521);
         hora[3] = new Horario(59);
 
-        hora[0].mostraHora();
-        hora[1].mostraHora();
-        hora[2].mostraHora();
-        hora[3].mostraHora();
-
+        for(int i = 0; i < hora.length; i++){
+            hora[i].exibir();
+        }
     }
+
 }
