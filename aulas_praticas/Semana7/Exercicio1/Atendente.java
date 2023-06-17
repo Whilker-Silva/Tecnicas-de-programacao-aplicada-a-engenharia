@@ -5,7 +5,7 @@ public class Atendente {
     private int momentoAtendimento;
 
     public Atendente() {
-
+        momentoAtendimento = 0;
     }
 
     public void atenderCliente(int tempoAtendimento, int tempoSimulacao) {

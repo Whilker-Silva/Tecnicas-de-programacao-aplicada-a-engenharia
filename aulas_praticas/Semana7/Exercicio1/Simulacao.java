@@ -14,42 +14,57 @@ public class Simulacao {
     private int numeroAtendentes;
 
     // Cosntrutor
-    public Simulacao(int duracaoSimulacao, int numeroAtendentes) {
+    public Simulacao(int numeroAtendentes, int duracaoSimulacao) {
 
         filaClientes = new LinkedList<>();
         listaAtendentes = new ArrayList<>();
         this.duracaoSimulacao = duracaoSimulacao;
         this.numeroAtendentes = numeroAtendentes;
 
-        ciarFilaClientes();
-        //ciarListaAtendentes();
+        criarFilaClientes();
+        ciarListaAtendentes();
     }
 
-    // Metodos
+    public void simular() {
 
-    private void ciarFilaClientes() {
+        for (int t = 0; t < duracaoSimulacao; t++) {
+
+            for (Atendente a : listaAtendentes) {
+
+                if (a.estaDisponivel(t)) {
+                    if (filaClientes.peek() != null) {
+                        if (filaClientes.peek().getTempoChegada() < t) {
+                            filaClientes.poll();
+                        }
+                    }
+                }
+            }
+
+            System.out.println(filaClientes.size());
+
+        }
+    }
+
+    private void criarFilaClientes() {
 
         Random tempo = new Random();
         int tc = tempo.nextInt(4);
-        int da = tempo.nextInt(7)+1;
+        int da = tempo.nextInt(7) + 1;
 
         do {
             filaClientes.add(new Cliente(tc, da));
 
             tc += tempo.nextInt(4);
-            da = tempo.nextInt(7)+1;
+            da = tempo.nextInt(7) + 1;
 
-        } while (tc + da <= duracaoSimulacao);
-
-        while (!filaClientes.isEmpty()) {
-            Cliente c = filaClientes.remove();
-            System.out.printf("chegada: %d duração: %d\n", c.getTempoChegada(), c.getDuracaoAtendimento());
-        }
-
+        } while (tc + da < duracaoSimulacao);
     }
 
     private void ciarListaAtendentes() {
 
+        for (int i = 0; i < numeroAtendentes; i++) {
+            listaAtendentes.add(new Atendente());
+        }
     }
 
 }
