@@ -55,12 +55,13 @@ public class Ambiente {
     }
 
     public String getListaSaidas() {
-       /*  String texto = "";
-        for (String saida : saidas.keySet()) {  
+
+        String texto = "";
+        for (String saida : saidas.keySet()) {
             texto = texto + saida + " ";
-        }*/
-        
-        return saidas.keySet().toString();
+        }
+
+        return texto;
     }
 
     public Ambiente getSaida(String direcao) {

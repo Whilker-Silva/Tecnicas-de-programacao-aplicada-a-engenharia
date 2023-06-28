@@ -30,18 +30,17 @@ public class Jogo {
     /**
      * Cria todos os ambientes e liga as saidas deles
      */
-    private void criarAmbientes() {
+    private void criarAmbientes() {        
 
-        
-
-        Ambiente fora, anfiteatro, cantina, laboratorio, escritorio;
+        Ambiente fora, anfiteatro, cantina, laboratorio, escritorio, sotao;
 
         // cria os ambientes
         fora = new Ambiente("do lado de fora da entrada principal de uma universidade");
         anfiteatro = new Ambiente("no anfiteatro");
         cantina = new Ambiente("na cantina do campus");
         laboratorio = new Ambiente("no laboratorio de computacao");
-        escritorio = new Ambiente("na sala de administracao dos computadores");        
+        escritorio = new Ambiente("na sala de administracao dos computadores");  
+        sotao = new Ambiente("no sotao");    
 
         // inicializa as saidas dos ambientes
         
@@ -50,6 +49,7 @@ public class Jogo {
         fora.ajustarSaidas("oeste", cantina);
 
         anfiteatro.ajustarSaidas("oeste", fora);
+        anfiteatro.ajustarSaidas("cima", sotao);
 
         cantina.ajustarSaidas("leste", fora);
 
@@ -57,6 +57,8 @@ public class Jogo {
         laboratorio.ajustarSaidas("leste", escritorio);
 
         escritorio.ajustarSaidas("oeste", laboratorio);
+
+        sotao.ajustarSaidas("baixo", anfiteatro);
 
         
 
