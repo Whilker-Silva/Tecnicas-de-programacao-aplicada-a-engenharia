@@ -122,6 +122,8 @@ public class Jogo {
             irParaAmbiente(comando);
         } else if (palavraDeComando.equals("sair")) {
             querSair = sair(comando);
+        } else if (palavraDeComando.equals("observar")){
+            imprimeLocalizacao();
         }
 
         return querSair;

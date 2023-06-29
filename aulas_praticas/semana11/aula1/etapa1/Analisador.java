@@ -57,9 +57,11 @@ public class Analisador
         // Agora verifica se esta palavra eh conhecida. Se for, cria um
         // com ela. Se nao, cria um comando "null" (para comando desconhecido)
         if(palavrasDeComando.ehComando(palavra1)) {
+            tokenizer.close();
             return new Comando(palavra1, palavra2);
         }
         else {
+            tokenizer.close();
             return new Comando(null, palavra2); 
         }
     }
