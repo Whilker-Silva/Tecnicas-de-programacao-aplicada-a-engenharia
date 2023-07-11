@@ -181,7 +181,7 @@ public class Sig {
             } else {
                 // Se for outro sistema operacional, utiliza o comando "clear" para limpar o
                 // terminal
-                Runtime.getRuntime().exec("clear");
+                //Runtime.getRuntime().exec("clear");
             }
         } catch (Exception e) {
             e.printStackTrace();

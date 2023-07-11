@@ -86,7 +86,7 @@ public class Sig {
             System.out.println("Nenhuma discilpina cadastrada!");
         }
 
-        for(Disciplina x : disciplina.values() ){
+        for (Disciplina x : disciplina.values()) {
             System.out.println(x.getCodigo());
         }
         voltarMenu();
@@ -177,7 +177,7 @@ public class Sig {
             } else {
                 // Se for outro sistema operacional, utiliza o comando "clear" para limpar o
                 // terminal
-                Runtime.getRuntime().exec("clear");
+                // Runtime.getRuntime().exec("clear");
             }
         } catch (Exception e) {
             e.printStackTrace();
