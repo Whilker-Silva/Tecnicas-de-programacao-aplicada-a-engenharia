@@ -1,3 +1,4 @@
+
 /**
  * Essa eh a classe principal da aplicacao "World of Zull".
  * "World of Zuul" eh um jogo de aventura muito simples, baseado em texto.
@@ -30,7 +31,7 @@ public class Jogo {
     /**
      * Cria todos os ambientes e liga as saidas deles
      */
-    private void criarAmbientes() {        
+    private void criarAmbientes() {
 
         Ambiente fora, anfiteatro, cantina, laboratorio, escritorio, sotao;
 
@@ -39,11 +40,11 @@ public class Jogo {
         anfiteatro = new Ambiente("no anfiteatro");
         cantina = new Ambiente("na cantina do campus");
         laboratorio = new Ambiente("no laboratorio de computacao");
-        escritorio = new Ambiente("na sala de administracao dos computadores");  
-        sotao = new Ambiente("no sotao");    
+        escritorio = new Ambiente("na sala de administracao dos computadores");
+        sotao = new Ambiente("no sotao");
 
         // inicializa as saidas dos ambientes
-        
+
         fora.ajustarSaidas("leste", anfiteatro);
         fora.ajustarSaidas("sul", laboratorio);
         fora.ajustarSaidas("oeste", cantina);
@@ -59,8 +60,6 @@ public class Jogo {
         escritorio.ajustarSaidas("oeste", laboratorio);
 
         sotao.ajustarSaidas("baixo", anfiteatro);
-
-        
 
         ambienteAtual = fora; // o jogo comeca do lado de fora
     }
@@ -122,7 +121,7 @@ public class Jogo {
             irParaAmbiente(comando);
         } else if (palavraDeComando.equals("sair")) {
             querSair = sair(comando);
-        } else if (palavraDeComando.equals("observar")){
+        } else if (palavraDeComando.equals("observar")) {
             imprimeLocalizacao();
         }
 

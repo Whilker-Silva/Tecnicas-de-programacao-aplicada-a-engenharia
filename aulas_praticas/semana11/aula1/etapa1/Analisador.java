@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import semana11.aula1.PalavrasComando;
-
 /**
  * Esta classe eh parte da aplicacao "World of Zuul".
  * "World of Zuul" eh um jogo de aventura muito simples, baseado em texto.  
