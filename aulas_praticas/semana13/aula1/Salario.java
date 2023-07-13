@@ -1,4 +1,4 @@
-package semana13.templateMetodo;
+package semana13.aula1;
 
 public abstract class Salario {
 
