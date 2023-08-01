@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Principal",
             "request": "launch",
+            "mainClass": "semana1.ex03.Principal",
+            "projectName": "Tecnicas-de-programacao-aplicada-a-engenharia_79cd0dd3"
+        },
+        {
+            "type": "java",
+            "name": "Principal",
+            "request": "launch",
             "mainClass": "semana13.aula2.ex1.Principal",
             "projectName": "Tecnicas-de-programacao-aplicada-a-engenharia_c7f608c7"
         },
