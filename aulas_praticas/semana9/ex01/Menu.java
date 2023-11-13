@@ -32,6 +32,7 @@ public class Menu {
         System.out.println("3 - Remover um contato");
         System.out.println("4 - Imprimir dados da agenda");
         System.out.println("5 - Sair");
+        
     }
 
     private void executarOpçao(int opcao) {
